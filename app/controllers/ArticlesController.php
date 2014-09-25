@@ -16,12 +16,8 @@ class articlesController extends \BaseController {
 	public function index()
 	{
 		$articles = Article::all();
-
-		return Response::json(array(
-			'error' => false,
-			'articles' => $articles->toArray()),
-			200
-		);
+		$params['articles'] = $articles;
+		return View::make('pages.article.index', $params);
 	}
 
 
@@ -32,7 +28,7 @@ class articlesController extends \BaseController {
 	 */
 	public function create()
 	{
-		//
+		return View::make('pages.article.create');
 	}
 
 
@@ -71,11 +67,8 @@ class articlesController extends \BaseController {
 	public function show($id)
 	{
 		$article = Article::find($id);
-		return Response::json(array(
-			'error' => false,
-			'article' => $article),
-			200
-		);
+		$params['article'] = $article;
+		return View::make('pages.article.show', $params);
 	}
 
 

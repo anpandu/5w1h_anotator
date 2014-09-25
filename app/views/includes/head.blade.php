@@ -3,8 +3,9 @@
 <meta name="description" content="">
 <meta name="author" content="Scotch">
 
-<title>Super Cool Layouts</title>
+<title>5W1H anotator</title>
 
+{{ HTML::style('css/master.css') }}
 <!-- load bootstrap -->
 {{ HTML::style('packages/bootstrap/css/bootstrap.min.css') }}
 <!-- Optional theme -->
