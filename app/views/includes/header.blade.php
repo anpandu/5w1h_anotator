@@ -20,5 +20,13 @@
 			<li class="{{$a_about}}"><a href="/about">About</a></li>
 			<li class="{{$a_contact}}"><a href="/contact">Contact</a></li>
 		</ul>
+		<ul class="nav navbar-nav navbar-right">
+			@if (Auth::check())
+				<li><a>Welcome, {{Auth::user()->username}}</a></li>
+				<li><a href="/logout">logout</a></li>
+			@else
+				<li><a href="/login">Login</a></li>
+			@endif
+		</ul>
 	</div><!--/.nav-collapse -->
 </div>

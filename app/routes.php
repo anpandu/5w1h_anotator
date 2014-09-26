@@ -11,21 +11,23 @@
 |
 */
 
-Route::get('/', function()
-{
+Route::get('/', function() {
 	return View::make('pages.home');
 });
 
-Route::get('about', function()
-{
+Route::get('about', function() {
 	return View::make('pages.about');
 });
 
-Route::get('contact', function()
-{
+Route::get('contact', function() {
 	return View::make('pages.contact');
 });
 
 
 Route::resource('user', 'UsersController');
 Route::resource('article', 'ArticlesController');
+
+
+Route::get('login', array('uses' => 'LoginController@showLogin'));
+Route::post('login', array('uses' => 'LoginController@doLogin'));
+Route::get('logout', array('uses' => 'LoginController@doLogout'));
