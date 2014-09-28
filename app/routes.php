@@ -25,7 +25,12 @@ Route::get('contact', function() {
 
 
 Route::resource('user', 'UsersController');
+
+Route::get('article/{article_id}/user/{user_id}', array('uses' => 'ArticlesController@info'));
 Route::resource('article', 'ArticlesController');
+
+Route::get('info/create/{id}', array('uses' => 'InfoController@create'));
+Route::resource('info', 'InfoController');
 
 
 Route::get('login', array('uses' => 'LoginController@showLogin'));

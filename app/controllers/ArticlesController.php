@@ -72,6 +72,19 @@ class articlesController extends \BaseController {
 	}
 
 
+	public function info($article_id, $user_id)
+	{
+		$article = Article::find($article_id);
+		$info = Info::findByArticleUser($article_id, $user_id);
+		$params['article'] = $article;
+		$params['info'] = $info;
+		if ($article==null || $info==null)
+			App::abort(404);
+		else
+			return View::make('pages.article.info', $params);
+	}
+
+
 	/**
 	 * Show the form for editing the specified resource.
 	 *
