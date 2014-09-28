@@ -27,4 +27,8 @@ class Info extends Eloquent implements UserInterface, RemindableInterface {
 		return Info::where('article_id', '=', $article_id)->where('user_id', '=', $user_id)->first();
 	}
 
+	public function user() {
+		return User::find($this->user_id);
+	}
+
 }

@@ -67,7 +67,9 @@ class articlesController extends \BaseController {
 	public function show($id)
 	{
 		$article = Article::find($id);
+		$infos = Info::where('article_id', '=', $id)->get();
 		$params['article'] = $article;
+		$params['infos'] = $infos;
 		return View::make('pages.article.show', $params);
 	}
 
