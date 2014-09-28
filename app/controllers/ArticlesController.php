@@ -20,6 +20,16 @@ class articlesController extends \BaseController {
 		return View::make('pages.article.index', $params);
 	}
 
+	public function lists()
+	{
+		$articles = Article::all();
+		$user = User::find(Auth::user()->id);
+		$owned_article_ids = array_map(function($x) {return $x["article_id"];}, $user->infos()->get()->toArray());
+		$params['articles'] = $articles;
+		$params['owned_article_ids'] = $owned_article_ids;
+		return View::make('pages.article.list', $params);
+	}
+
 
 	/**
 	 * Show the form for creating a new resource.

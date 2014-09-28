@@ -26,6 +26,7 @@ Route::get('contact', function() {
 
 Route::resource('user', 'UsersController');
 
+Route::get('article/list', array('uses' => 'ArticlesController@lists'));
 Route::get('article/{article_id}/user/{user_id}', array('uses' => 'ArticlesController@info'));
 Route::resource('article', 'ArticlesController');
 
