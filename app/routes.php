@@ -31,6 +31,8 @@ Route::get('article/{article_id}/user/{user_id}', array('uses' => 'ArticlesContr
 Route::resource('article', 'ArticlesController');
 
 Route::get('info/create/{id}', array('uses' => 'InfoController@create'));
+Route::get('info/edit/{id}', array('uses' => 'InfoController@edit'));
+Route::post('info/edit/{id}', array('uses' => 'InfoController@update'));
 Route::resource('info', 'InfoController');
 
 

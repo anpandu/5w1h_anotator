@@ -13,7 +13,7 @@
                 <td><p>{{ $article->id }}</p></td>
                 <td><a href="{{url('/article/'.$article->id);}}">{{ $article->title }}</a></td>
                 @if (in_array($article->id, $owned_article_ids))
-                    <td><a href="{{url('/info/create/'.$article->id);}}">Edit</a></td>
+                    <td><a href="{{url('/info/edit/'.$article->id);}}">Edit</a></td>
                 @else
                     <td><a href="{{url('/info/create/'.$article->id);}}">Add</a></td>
                 @endif

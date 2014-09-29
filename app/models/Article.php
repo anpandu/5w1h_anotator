@@ -23,4 +23,9 @@ class Article extends Eloquent implements UserInterface, RemindableInterface {
 	 */
 	// protected $hidden = array('password', 'remember_token');
 
+	public function info($id)
+	{
+		return Info::where('article_id', '=', $id)->get()->first();
+	}
+
 }
