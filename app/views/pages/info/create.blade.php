@@ -1,5 +1,8 @@
 @extends('layouts.default')
 @section('content')
+
+    {{ HTML::style('css/autocomplete.css') }}
+
     <div class="col-sm-1"></div>
     <div class="col-sm-10">
         <div class="row">
@@ -59,4 +62,21 @@
     </div>
     </div>
     <div class="col-sm-1"></div>
+
+    {{ HTML::script('packages/jquery/jquery.min.js') }}
+    {{ HTML::script('packages/jquery-autocomplete/jquery.autocomplete.min.js') }}
+
+    <script type="text/javascript">
+        var au = $('#inputWhat').autocomplete({
+            serviceUrl:'{{url("autocomplete/1")}}',
+            // minChars:2
+            // maxHeight:400,
+            // width:300,
+            // zIndex: 9999
+            // deferRequestBy: 0, //miliseconds
+            // onSelect: function(value, data){ alert('You selected: ' + value + ', ' + data); },
+            // lookup: ['January', 'February', 'March', 'April', 'May'] //local lookup values
+        });
+        au.enable();
+    </script>
 @stop
