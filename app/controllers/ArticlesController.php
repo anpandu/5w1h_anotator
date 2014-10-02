@@ -30,17 +30,6 @@ class articlesController extends \BaseController {
 		return View::make('pages.article.list', $params);
 	}
 
-
-	public function getAutocomplete($article_id)
-	{
-		$article = Article::find($article_id);
-		$text = explode(" ", $article["text"]);
-		$res = new stdClass();
-		$res->query = "unit";
-		$res->suggestions = $text;//["United Arab Emirates", "United Kingdom", "United States"];
-		return json_encode($res);
-	}
-
 	/**
 	 * Show the form for creating a new resource.
 	 *

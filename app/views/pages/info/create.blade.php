@@ -68,14 +68,8 @@
 
     <script type="text/javascript">
         var au = $('#inputWhat').autocomplete({
-            serviceUrl:'{{url("autocomplete/1")}}',
-            // minChars:2
-            // maxHeight:400,
-            // width:300,
-            // zIndex: 9999
-            // deferRequestBy: 0, //miliseconds
-            // onSelect: function(value, data){ alert('You selected: ' + value + ', ' + data); },
-            // lookup: ['January', 'February', 'March', 'April', 'May'] //local lookup values
+            serviceUrl:'{{url("autocomplete/".$article->id)}}',
+            // onSelect: function(value, data){$('#inputWhat').focus();}
         });
         au.enable();
     </script>
