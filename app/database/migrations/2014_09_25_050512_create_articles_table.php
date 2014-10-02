@@ -16,6 +16,7 @@ class CreateArticlesTable extends Migration {
 			$table->increments('id');
 			$table->string('title');
 			$table->text('text');
+			$table->text('text_autocomplete');
 			$table->dateTime('created_at');
 			$table->dateTime('updated_at');
 		});
