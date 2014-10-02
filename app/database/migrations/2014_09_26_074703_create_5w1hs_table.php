@@ -37,8 +37,10 @@ class Create5w1hsTable extends Migration {
 	 */
 	public function down()
 	{
-		$table->dropForeign('5w1hs_user_id_foreign');
-		$table->dropForeign('5w1hs_article_id_foreign');
+		Schema::table('5w1hs', function($table) {
+			$table->dropForeign('5w1hs_user_id_foreign');
+			$table->dropForeign('5w1hs_article_id_foreign');
+		});
     	Schema::drop('5w1hs');
 	}
 
