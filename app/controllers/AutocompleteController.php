@@ -12,6 +12,8 @@ class AutocompleteController extends \BaseController {
 
 		$input = Input::get('term', 'a') . "";
 		$suggestions = $this->getSuggestion($input, $word_array);
+		$suggestions += $this->getSuggestion($input." ", $word_array);
+
 		$res = [];
 		foreach ($suggestions as $key => $suggestion) {
 			$item = new stdClass();

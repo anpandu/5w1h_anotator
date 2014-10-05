@@ -67,40 +67,13 @@
     {{ HTML::script('packages/jquery-ui/jquery-ui.js') }}
 
     <script type="text/javascript">
-        // var au = $('#inputWhat').autocomplete({
-        //     serviceUrl:'{{url("autocomplete/".$article->id)}}',
-        //     onSelect: function(value, data){$('#inputWhat').focus();}
-        // });
-        // au.enable();
         $(function() {
-            var availableTags = [
-                "ActionScript",
-                "AppleScript",
-                "Asp",
-                "BASIC",
-                "C",
-                "C++",
-                "Clojure",
-                "COBOL",
-                "ColdFusion",
-                "Erlang",
-                "Fortran",
-                "Groovy",
-                "Haskell",
-                "Java",
-                "JavaScript",
-                "Lisp",
-                "Perl",
-                "PHP",
-                "Python",
-                "Ruby",
-                "Scala",
-                "Scheme"
-            ];
-            $( "#inputWhat" ).autocomplete({
+            var option = {
                 source: '{{url("autocomplete/".$article->id)}}',
-                select: function(value, data){$('#inputWhat').focus();}
-            });
+                delay: 4,
+                select: function(value, data){$('#inputWhat').autocomplete( "search", $("#inputWhat").val());}
+            }
+            $( "#inputWhat" ).autocomplete(option);
         });
     </script>
 @stop
