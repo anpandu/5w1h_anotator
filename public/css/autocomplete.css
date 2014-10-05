@@ -6,6 +6,14 @@
 
 /* Layout helpers
 ----------------------------------*/
+
+.hl_what {background-color: #006666;}
+.hl_who {background-color: #57acae;}
+.hl_where {background-color: #a7ebed;}
+.hl_when {background-color: #bbfdff;}
+.hl_why {background-color: #bbffd8;}
+.hl_how {background-color: #c6ffbb;}
+
 .ui-helper-hidden {
 	display: none;
 }
