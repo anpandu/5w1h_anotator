@@ -1,6 +1,7 @@
 
 
 var hl = {};
+var contentfix = "";
 
 var getIdxSentenceInWordArr = function (word_arr, sentence) {
     var sentence_arr = sentence.split(" ");
@@ -19,9 +20,11 @@ var getIdxSentenceInWordArr = function (word_arr, sentence) {
 var highlightSentence = function (sentence, info_id) {
     var content = $('#newsContent').val();
     var content_arr = content.replace(/\n/g, " \n ").split(" ");
-
-    hl[info_id] = getIdxSentenceInWordArr(content_arr, sentence);
-
+    if (sentence=="") {
+        delete hl[info_id];
+    } else {
+        hl[info_id] = getIdxSentenceInWordArr(content_arr, sentence);
+    }
     var info = [];
     info.push(["inputWhat", "hl_what"]);
     info.push(["inputWho", "hl_who"]);
@@ -29,7 +32,6 @@ var highlightSentence = function (sentence, info_id) {
     info.push(["inputWhen", "hl_when"]);
     info.push(["inputWhy", "hl_why"]);
     info.push(["inputHow", "hl_how"]);
-
     for (var j = 0; j < info.length; j++) {
         var inp = info[j][0];
         var cls = info[j][1];
@@ -39,7 +41,7 @@ var highlightSentence = function (sentence, info_id) {
             }
         }
     }
-    var contentfix = content_arr.join(" ").replace(/\n/g, "<br>");
+    contentfix = content_arr.join(" ").replace(/\n/g, "<br>");
     contentfix = contentfix.replace(/<\/span/g," <\/span");
     contentfix = contentfix.replace(/span> <span/g,"span><span");
     $("#newsContentFix").html(contentfix);

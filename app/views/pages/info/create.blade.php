@@ -67,7 +67,7 @@
     {{ HTML::script('packages/jquery/jquery.min.js') }}
     {{ HTML::script('packages/jquery-ui/jquery-ui.js') }}
     {{ HTML::script('js/infohighlight.js') }}
-    
+
     <script type="text/javascript">
         $(function() {
             var option = function (input) {
@@ -75,8 +75,7 @@
                     source: '{{url("autocomplete/".$article->id)}}',
                     delay: 300,
                     select: function(event, ui){
-                        $("#"+input).autocomplete( "search", $("#"+input).val()); 
-                        highlightSentence(ui['item']['value'], input);
+                        $("#"+input).autocomplete( "search", $("#"+input).val());
                     }
                 }
             }
@@ -86,6 +85,13 @@
             $( "#inputWhen" ).autocomplete(option("inputWhen"));
             $( "#inputWhy" ).autocomplete(option("inputWhy"));
             $( "#inputHow" ).autocomplete(option("inputHow"));
+
+            $( "#inputWhat" ).change(function(){highlightSentence($("#inputWhat").val(), "inputWhat");});
+            $( "#inputWho" ).change(function(){highlightSentence($("#inputWho").val(), "inputWho");});
+            $( "#inputWhere" ).change(function(){highlightSentence($("#inputWhere").val(), "inputWhere");});
+            $( "#inputWhen" ).change(function(){highlightSentence($("#inputWhen").val(), "inputWhen");});
+            $( "#inputWhy" ).change(function(){highlightSentence($("#inputWhy").val(), "inputWhy");});
+            $( "#inputHow" ).change(function(){highlightSentence($("#inputHow").val(), "inputHow");});
         });
     </script>
 @stop
