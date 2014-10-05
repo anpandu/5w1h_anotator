@@ -1,5 +1,6 @@
 <?php
 	$a_home = (Request::path()==="/") ? "active" : "";
+	$a_articlelist = (Request::path()==="article/list") ? "active" : "";
 	$a_about = (Request::path()==="about") ? "active" : "";
 	$a_contact = (Request::path()==="contact") ? "active" : "";
 ?>
@@ -17,6 +18,7 @@
 	<div class="navbar-collapse collapse">
 		<ul class="nav navbar-nav">
 			<li class="{{$a_home}}"><a href="/">Home</a></li>
+			<li class="{{$a_articlelist}}"><a href="/article/list">Articles</a></li>
 			<li class="{{$a_about}}"><a href="/about">About</a></li>
 			<li class="{{$a_contact}}"><a href="/contact">Contact</a></li>
 		</ul>
