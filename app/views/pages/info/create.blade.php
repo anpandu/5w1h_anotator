@@ -64,13 +64,43 @@
     <div class="col-sm-1"></div>
 
     {{ HTML::script('packages/jquery/jquery.min.js') }}
-    {{ HTML::script('packages/jquery-autocomplete/jquery.autocomplete.min.js') }}
+    {{ HTML::script('packages/jquery-ui/jquery-ui.js') }}
 
     <script type="text/javascript">
-        var au = $('#inputWhat').autocomplete({
-            serviceUrl:'{{url("autocomplete/".$article->id)}}',
-            // onSelect: function(value, data){$('#inputWhat').focus();}
+        // var au = $('#inputWhat').autocomplete({
+        //     serviceUrl:'{{url("autocomplete/".$article->id)}}',
+        //     onSelect: function(value, data){$('#inputWhat').focus();}
+        // });
+        // au.enable();
+        $(function() {
+            var availableTags = [
+                "ActionScript",
+                "AppleScript",
+                "Asp",
+                "BASIC",
+                "C",
+                "C++",
+                "Clojure",
+                "COBOL",
+                "ColdFusion",
+                "Erlang",
+                "Fortran",
+                "Groovy",
+                "Haskell",
+                "Java",
+                "JavaScript",
+                "Lisp",
+                "Perl",
+                "PHP",
+                "Python",
+                "Ruby",
+                "Scala",
+                "Scheme"
+            ];
+            $( "#inputWhat" ).autocomplete({
+                source: '{{url("autocomplete/".$article->id)}}',
+                select: function(value, data){$('#inputWhat').focus();}
+            });
         });
-        au.enable();
     </script>
 @stop

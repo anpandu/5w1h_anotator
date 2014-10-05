@@ -10,13 +10,16 @@ class AutocompleteController extends \BaseController {
 		$text_autocomplete = str_replace("\n", " ", $text_autocomplete); // !!!
 		$word_array = explode(" ", $text_autocomplete);
 
-		$input = Input::get('query', '1') . "";
+		$input = Input::get('term', 'a') . "";
 		$suggestions = $this->getSuggestion($input, $word_array);
-		// $suggestions += $this->getSuggestion($input." ", $word_array);
-
-		$res = new stdClass();
-		$res->query = "";
-		$res->suggestions = $suggestions;
+		$res = [];
+		foreach ($suggestions as $key => $suggestion) {
+			$item = new stdClass();
+			$item->id = $key;
+			$item->value = $suggestion;	
+			$item->label = $suggestion;			
+			$res[$key] = $item;
+		}
 
 		return json_encode($res);
 	}
