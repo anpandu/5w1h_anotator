@@ -42,13 +42,13 @@
                     <div class="form-group">
                         <label for="inputText" class="col-sm-2 control-label">Why</label>
                         <div class="col-sm-10">
-                                <textarea id="inputText" class="form-control" rows="5" placeholder="Why" name="why"></textarea>
+                                <textarea id="inputWhy" class="form-control" rows="5" placeholder="Why" name="why"></textarea>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="inputText" class="col-sm-2 control-label">How</label>
                         <div class="col-sm-10">
-                                <textarea id="inputText" class="form-control" rows="5" placeholder="How" name="how"></textarea>
+                                <textarea id="inputHow" class="form-control" rows="5" placeholder="How" name="how"></textarea>
                         </div>
                     </div>
                     <div class="form-group">
@@ -68,12 +68,19 @@
 
     <script type="text/javascript">
         $(function() {
-            var option = {
-                source: '{{url("autocomplete/".$article->id)}}',
-                delay: 4,
-                select: function(value, data){$('#inputWhat').autocomplete( "search", $("#inputWhat").val());}
+            var option = function (input) {
+                return {
+                    source: '{{url("autocomplete/".$article->id)}}',
+                    delay: 300,
+                    select: function(value, data){$(input).autocomplete( "search", $(input).val());}
+                }
             }
-            $( "#inputWhat" ).autocomplete(option);
+            $( "#inputWhat" ).autocomplete(option("#inputWhat"));
+            $( "#inputWho" ).autocomplete(option("#inputWho"));
+            $( "#inputWhere" ).autocomplete(option("#inputWhere"));
+            $( "#inputWhen" ).autocomplete(option("#inputWhen"));
+            $( "#inputWhy" ).autocomplete(option("#inputWhy"));
+            $( "#inputHow" ).autocomplete(option("#inputHow"));
         });
     </script>
 @stop
