@@ -22,7 +22,7 @@ class articlesController extends \BaseController {
 
 	public function lists()
 	{
-		$articles = Article::all();
+		$articles = Article::paginate(10);
 		$user = User::find(Auth::user()->id);
 		$owned_article_ids = array_map(function($x) {return $x["article_id"];}, $user->infos()->get()->toArray());
 		$params['articles'] = $articles;
