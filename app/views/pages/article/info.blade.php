@@ -10,6 +10,7 @@
             <div class="col-sm-1"></div>
             <div class="col-sm-5">
                 <h2>Article #{{ $article->id }}</h2>
+                <a href="{{url('info/create/'.($article->id+1))}}">>> next article <<</a>
                 <hr>
                 <form class="form-horizontal" role="form">
                     <div class="form-group">
