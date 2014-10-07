@@ -19,7 +19,7 @@
                     <div class="form-group">
                         <label for="inputTitle" class="col-sm-2 control-label">What</label>
                         <div class="col-sm-10">
-                                <input type="text" class="form-control" id="inputWhat" placeholder="What" name="what">
+                            <textarea id="inputWhat" class="form-control" rows="5" placeholder="What" name="what"></textarea>
                         </div>
                     </div>
                     <div class="form-group">
