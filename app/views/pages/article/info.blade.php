@@ -14,37 +14,37 @@
                     <div class="form-group">
                         <label for="inputTitle" class="col-sm-2 control-label">What</label>
                         <div class="col-sm-10">
-                            <textarea id="inputWhat" class="form-control" rows="5" placeholder="Why">{{$info->what}}</textarea>
+                            <textarea readonly id="inputWhat" class="form-control" rows="5" placeholder="Why">{{$info->what}}</textarea>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="inputTitle" class="col-sm-2 control-label">Who</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="inputWho" placeholder="Who" value="{{$info->who}}">
+                            <input readonly type="text" class="form-control" id="inputWho" placeholder="Who" value="{{$info->who}}">
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="inputTitle" class="col-sm-2 control-label">When</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="inputWhen" placeholder="When" value="{{$info->when}}">
+                            <input readonly type="text" class="form-control" id="inputWhen" placeholder="When" value="{{$info->when}}">
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="inputTitle" class="col-sm-2 control-label">Where</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="inputWhere" placeholder="Where" value="{{$info->where}}">
+                            <input readonly type="text" class="form-control" id="inputWhere" placeholder="Where" value="{{$info->where}}">
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="inputText" class="col-sm-2 control-label">Why</label>
                         <div class="col-sm-10">
-                            <textarea id="inputText" class="form-control" rows="5" placeholder="Why">{{$info->why}}</textarea>
+                            <textarea readonly id="inputText" class="form-control" rows="5" placeholder="Why">{{$info->why}}</textarea>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="inputText" class="col-sm-2 control-label">How</label>
                         <div class="col-sm-10">
-                            <textarea id="inputText" class="form-control" rows="5" placeholder="How">{{$info->how}}</textarea>
+                            <textarea readonly id="inputText" class="form-control" rows="5" placeholder="How">{{$info->how}}</textarea>
                         </div>
                     </div>
                 </form>
