@@ -45,13 +45,7 @@ class InfoController extends \BaseController {
 	public function store()
 	{
 		$rules = array(
-			'article_id' => 'required',
-			'what' => 'required',
-			'who' => 'required',
-			'when' => 'required',
-			'where' => 'required',
-			'why' => 'required',
-			'how' => 'required'
+			'article_id' => 'required'
 		);
 		$validator = Validator::make(Input::all(), $rules);
 		if ($validator->fails()) {
@@ -110,13 +104,7 @@ class InfoController extends \BaseController {
 	public function update($id)
 	{
 		$rules = array(
-			'article_id' => 'required',
-			'what' => 'required',
-			'who' => 'required',
-			'when' => 'required',
-			'where' => 'required',
-			'why' => 'required',
-			'how' => 'required'
+			'article_id' => 'required'
 		);
 		$validator = Validator::make(Input::all(), $rules);
 		if ($validator->fails()) {
