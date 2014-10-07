@@ -13,7 +13,8 @@
             </div>
             <div class="col-sm-1"></div>
             <div class="col-sm-5">
-                <h1>5W1H</h1>
+                <h2>Article #{{ $article->id }}</h2>
+                <hr>
                 <form class="form-horizontal" role="form" method="post" action="/info">
                     <input type="hidden" class="form-control" id="inputArticleId" placeholder="What" name="article_id" value="{{$article->id}}">
                     <div class="form-group">

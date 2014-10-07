@@ -9,7 +9,8 @@
             </div>
             <div class="col-sm-1"></div>
             <div class="col-sm-5">
-                <h1>5W1H</h1>
+                <h2>Article #{{ $article->id }}</h2>
+                <hr>
                 <form class="form-horizontal" role="form">
                     <div class="form-group">
                         <label for="inputTitle" class="col-sm-2 control-label">What</label>

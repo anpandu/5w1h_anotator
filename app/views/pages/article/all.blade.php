@@ -9,6 +9,7 @@
             </div>
             <div class="col-sm-1"></div>
             <div class="col-sm-5">                
+                <h2>Article #{{ $article->id }}</h2>
                 @if (count($infos) > 0)
                     @foreach ($infos as $info)
                         <hr>                        
