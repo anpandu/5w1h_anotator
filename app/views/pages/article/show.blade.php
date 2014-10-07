@@ -26,6 +26,7 @@
                     @endforeach
                 </table>
                 @endif
+                <h4><a href="{{url('article/'.$article->id.'/all')}}">see all</a></h4>
             </div>
     </div>
     </div>

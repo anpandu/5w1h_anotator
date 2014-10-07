@@ -30,6 +30,16 @@ class articlesController extends \BaseController {
 		return View::make('pages.article.list', $params);
 	}
 
+	public function all($id)
+	{
+		$article = Article::find($id);
+		$infos = Info::where('article_id', '=', $id)->orderBy('user_id')->get();
+		$params['article'] = $article;
+		$params['infos'] = $infos;
+		$params['users'] = array_merge([''], array_map(function($x) {return $x['username'];}, User::all()->toArray()));
+		return View::make('pages.article.all', $params);
+	}
+
 	/**
 	 * Show the form for creating a new resource.
 	 *
@@ -76,7 +86,7 @@ class articlesController extends \BaseController {
 	public function show($id)
 	{
 		$article = Article::find($id);
-		$infos = Info::where('article_id', '=', $id)->get();
+		$infos = Info::where('article_id', '=', $id)->orderBy('user_id')->get();
 		$params['article'] = $article;
 		$params['infos'] = $infos;
 		return View::make('pages.article.show', $params);

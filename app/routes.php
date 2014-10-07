@@ -31,6 +31,7 @@ Route::get('autocomplete/{article_id}', array('uses' => 'AutocompleteController@
 
 Route::get('article/list', array('uses' => 'ArticlesController@lists'));
 Route::get('article/{article_id}/user/{user_id}', array('uses' => 'ArticlesController@info'));
+Route::get('article/{article_id}/all', array('uses' => 'ArticlesController@all'));
 Route::resource('article', 'ArticlesController');
 
 Route::get('info/create/{id}', array('uses' => 'InfoController@create'));
