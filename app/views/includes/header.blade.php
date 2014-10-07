@@ -19,8 +19,8 @@
 		<ul class="nav navbar-nav">
 			<li class="{{$a_home}}"><a href="/">Home</a></li>
 			<li class="{{$a_articlelist}}"><a href="/article/list">Articles</a></li>
-			<li class="{{$a_about}}"><a href="/about">About</a></li>
-			<li class="{{$a_contact}}"><a href="/contact">Contact</a></li>
+			<!-- <li class="{{$a_about}}"><a href="/about">About</a></li>
+			<li class="{{$a_contact}}"><a href="/contact">Contact</a></li> -->
 		</ul>
 		<ul class="nav navbar-nav navbar-right">
 			@if (Auth::check())
