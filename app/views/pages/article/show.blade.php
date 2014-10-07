@@ -25,10 +25,10 @@
                         </tr>
                     @endforeach
                 </table>
-                @endif
                 <h4><a href="{{url('article/'.$article->id.'/all')}}">see all</a></h4>
+                @endif
             </div>
-    </div>
+        </div>
     </div>
     <div class="col-sm-1"></div>
 @stop
