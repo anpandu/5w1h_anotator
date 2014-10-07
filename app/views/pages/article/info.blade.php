@@ -4,7 +4,7 @@
     <div class="col-sm-10">
         <div class="row">
             <div class="col-sm-6">
-                <h1>{{ $article->title }}</h1>
+                <h2>{{ $article->title }}</h2>
                 <p>{{ str_replace("\n", "<br>", $article->text) }}</p>
             </div>
             <div class="col-sm-1"></div>
@@ -14,13 +14,13 @@
                     <div class="form-group">
                         <label for="inputTitle" class="col-sm-2 control-label">What</label>
                         <div class="col-sm-10">
-                            <textarea readonly id="inputWhat" class="form-control" rows="5" placeholder="Why">{{$info->what}}</textarea>
+                            <textarea readonly id="inputWhat" class="form-control" rows="4" placeholder="Why">{{$info->what}}</textarea>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="inputTitle" class="col-sm-2 control-label">Who</label>
                         <div class="col-sm-10">
-                            <input readonly type="text" class="form-control" id="inputWho" placeholder="Who" value="{{$info->who}}">
+                            <textarea readonly id="inputWho" class="form-control" rows="2" placeholder="Why">{{$info->who}}</textarea>
                         </div>
                     </div>
                     <div class="form-group">
@@ -38,13 +38,13 @@
                     <div class="form-group">
                         <label for="inputText" class="col-sm-2 control-label">Why</label>
                         <div class="col-sm-10">
-                            <textarea readonly id="inputText" class="form-control" rows="5" placeholder="Why">{{$info->why}}</textarea>
+                            <textarea readonly id="inputText" class="form-control" rows="4" placeholder="Why">{{$info->why}}</textarea>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="inputText" class="col-sm-2 control-label">How</label>
                         <div class="col-sm-10">
-                            <textarea readonly id="inputText" class="form-control" rows="5" placeholder="How">{{$info->how}}</textarea>
+                            <textarea readonly id="inputText" class="form-control" rows="4" placeholder="How">{{$info->how}}</textarea>
                         </div>
                     </div>
                 </form>

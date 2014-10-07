@@ -7,7 +7,7 @@
     <div class="col-sm-10">
         <div class="row">
             <div class="col-sm-6">
-                <h1>{{ $article->title }}</h1>
+                <h2>{{ $article->title }}</h2>
                 <input id="newsContent" type="hidden" value='{{ $article->text }}'>
                 <p id="newsContentFix">{{ str_replace("\n", "<br>", $article->text) }}</p>
             </div>
@@ -19,37 +19,37 @@
                     <div class="form-group">
                         <label for="inputTitle" class="col-sm-2 control-label">What</label>
                         <div class="col-sm-10">
-                            <textarea id="inputWhat" class="form-control" rows="5" placeholder="What" name="what"></textarea>
+                            <textarea id="inputWhat" class="form-control" rows="4" placeholder="What" name="what"></textarea>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="inputTitle" class="col-sm-2 control-label">Who</label>
                         <div class="col-sm-10">
-                                <input type="text" class="form-control" id="inputWho" placeholder="Who" name="who">
+                            <textarea id="inputWho" class="form-control" rows="2" placeholder="What" name="who"></textarea>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="inputTitle" class="col-sm-2 control-label">When</label>
                         <div class="col-sm-10">
-                                <input type="text" class="form-control" id="inputWhen" placeholder="When" name="when">
+                            <input type="text" class="form-control" id="inputWhen" placeholder="When" name="when">
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="inputTitle" class="col-sm-2 control-label">Where</label>
                         <div class="col-sm-10">
-                                <input type="text" class="form-control" id="inputWhere" placeholder="Where" name="where">
+                            <input type="text" class="form-control" id="inputWhere" placeholder="Where" name="where">
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="inputText" class="col-sm-2 control-label">Why</label>
                         <div class="col-sm-10">
-                                <textarea id="inputWhy" class="form-control" rows="5" placeholder="Why" name="why"></textarea>
+                            <textarea id="inputWhy" class="form-control" rows="4" placeholder="Why" name="why"></textarea>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="inputText" class="col-sm-2 control-label">How</label>
                         <div class="col-sm-10">
-                                <textarea id="inputHow" class="form-control" rows="5" placeholder="How" name="how"></textarea>
+                            <textarea id="inputHow" class="form-control" rows="4" placeholder="How" name="how"></textarea>
                         </div>
                     </div>
                     <div class="form-group">
