@@ -15,7 +15,7 @@
             <div class="col-sm-5">
                 <h2>Article #{{ $article->id }}</h2>
                 <hr>
-                <form class="form-horizontal" role="form" method="post" action="/info">
+                <form id="info_form" class="form-horizontal" role="form" method="post" action="/info">
                     <input type="hidden" class="form-control" id="inputArticleId" placeholder="What" name="article_id" value="{{$article->id}}">
                     <div class="form-group">
                         <label for="inputTitle" class="col-sm-2 control-label">What</label>
@@ -60,6 +60,17 @@
                         </div>
                     </div>
                 </form>
+
+                <div id="dialog" title="Selected">
+                    <p id="input_sentence">default</p>
+                    <hr>
+                    <input type="button" onclick="fsubmit('inputWhat')" id="ws_submit_what" value="what">
+                    <input type="button" onclick="fsubmit('inputWho')" id="ws_submit_who" value="who">
+                    <input type="button" onclick="fsubmit('inputWhen')" id="ws_submit_when" value="when">
+                    <input type="button" onclick="fsubmit('inputWhere')" id="ws_submit_where" value="where">
+                    <input type="button" onclick="fsubmit('inputWhy')" id="ws_submit_why" value="why">
+                    <input type="button" onclick="fsubmit('inputHow')" id="ws_submit_how" value="how">
+                </div>
             </div>
     </div>
     </div>
@@ -67,32 +78,20 @@
 
     {{ HTML::script('packages/jquery/jquery.min.js') }}
     {{ HTML::script('packages/jquery-ui/jquery-ui.js') }}
-    {{ HTML::script('js/infohighlight.js') }}
 
-    <script type="text/javascript">
+    <script>
+
+        fsubmit = function (target) {
+            $( "#"+target).val($("#input_sentence").html());
+            // $( "#dialog" ).dialog('close');
+        }
+
         $(function() {
-            var option = function (input) {
-                return {
-                    source: '{{url("autocomplete/".$article->id)}}',
-                    delay: 300,
-                    select: function(event, ui){
-                        $("#"+input).autocomplete( "search", $("#"+input).val());
-                    }
-                }
-            }
-            $( "#inputWhat" ).autocomplete(option("inputWhat"));
-            $( "#inputWho" ).autocomplete(option("inputWho"));
-            $( "#inputWhere" ).autocomplete(option("inputWhere"));
-            $( "#inputWhen" ).autocomplete(option("inputWhen"));
-            $( "#inputWhy" ).autocomplete(option("inputWhy"));
-            $( "#inputHow" ).autocomplete(option("inputHow"));
-
-            $( "#inputWhat" ).change(function(){highlightSentence($("#inputWhat").val(), "inputWhat");});
-            $( "#inputWho" ).change(function(){highlightSentence($("#inputWho").val(), "inputWho");});
-            $( "#inputWhere" ).change(function(){highlightSentence($("#inputWhere").val(), "inputWhere");});
-            $( "#inputWhen" ).change(function(){highlightSentence($("#inputWhen").val(), "inputWhen");});
-            $( "#inputWhy" ).change(function(){highlightSentence($("#inputWhy").val(), "inputWhy");});
-            $( "#inputHow" ).change(function(){highlightSentence($("#inputHow").val(), "inputHow");});
+            $( "#dialog" ).dialog({
+                position: { my: "left top", at: "left top", of: "#info_form" },
+                width:  416
+            });
         });
+
     </script>
 @stop
