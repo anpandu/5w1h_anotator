@@ -9,7 +9,9 @@
             <div class="col-sm-6">
                 <h2>{{ $article->title }}</h2>
                 <input id="newsContent" type="hidden" value='{{ $article->text }}'>
-                <p id="newsContentFix">{{ str_replace("\n", "<br>", $article->text) }}</p>
+                <p id="newsContentFix">
+                    {{ str_replace("\n", "<br>", $article->text) }}
+                </p>
             </div>
             <div class="col-sm-1"></div>
             <div class="col-sm-5">
@@ -81,15 +83,67 @@
 
     <script>
 
+        var cnc_state = 'idle';
+        var cnc_begin = '';
+        var cnc_end = '';
+
+        newsContentTransform = function (str) {
+            var res = str.split('');
+            for (var i = 0; i < res.length; i++) {
+                res[i] = "<span class='cnc_char' id='"+i+"'>" + res[i] + "</span>";
+            };
+            return res.join('');
+        }
+
+
+        updateInputSentence = function (_begin, _end) {
+            var begin = (_begin<=_end) ? _begin : _end;
+            var end = (_begin<=_end) ? _end : _begin;
+
+            $( '.cnc_char' ).css('background-color', '');
+            var is = "";
+            for (var i = begin; i <= end; i++) {
+                $( '#'+i ).css('background-color', '#aaaaff');
+                is += $( '#'+i).html();
+            };
+            $('#input_sentence').html(is);
+            console.log(begin+" "+end);
+        }
+
         fsubmit = function (target) {
             $( "#"+target).val($("#input_sentence").html());
-            // $( "#dialog" ).dialog('close');
+            $( "#dialog" ).dialog('close');
         }
 
         $(function() {
             $( "#dialog" ).dialog({
                 position: { my: "left top", at: "left top", of: "#info_form" },
                 width:  416
+            });
+            $( "#dialog" ).dialog({
+                close: function( event, ui ) {
+                    cnc_state = 'idle';
+                    $( '.cnc_char' ).css('background-color', '');
+                }
+            });
+            $( "#dialog" ).dialog('close');
+
+            $("#newsContentFix").html(newsContentTransform('{{$article->text}}'));
+
+            // $(".cnc_char").hover(function(){$(this).css("background-color", "#aaaaff");},function(){$(this).css("background-color", "");});
+            $(".cnc_char").click(function(){
+                // $(this).css('background-color', '#aaaaff');                
+                if (cnc_state=='idle') {
+                    cnc_begin = $(this).prop('id');
+                    cnc_end = $(this).prop('id');
+                    cnc_state = 'middle';
+                    $( "#dialog" ).dialog('open');
+                } else 
+                if (cnc_state=='middle') {
+                    cnc_end = $(this).prop('id');
+                    cnc_state = 'middle'
+                }
+                updateInputSentence(parseInt(cnc_begin, 10), parseInt(cnc_end, 10));
             });
         });
 
