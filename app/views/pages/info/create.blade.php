@@ -80,7 +80,6 @@
 
     {{ HTML::script('packages/jquery/jquery.min.js') }}
     {{ HTML::script('packages/jquery-ui/jquery-ui.js') }}
-    {{ HTML::script('packages/jquery-ui/jquery-ui.js') }}
     {{ HTML::script('js/clickcopas.js') }}
 
     <script>
