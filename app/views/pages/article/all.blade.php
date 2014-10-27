@@ -10,6 +10,7 @@
             <div class="col-sm-1"></div>
             <div class="col-sm-5">                
                 <h2>Article #{{ $article->id }}</h2>
+                <a href="{{url('article/'.($article->id+1).'/all')}}">>> next article <<</a>
                 @if (count($infos) > 0)
                     @foreach ($infos as $info)
                         <hr>                        
