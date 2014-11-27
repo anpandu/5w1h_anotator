@@ -114,7 +114,11 @@ class articlesController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-
+		$article = Article::find($id);
+		$infos = Info::where('article_id', '=', $id)->orderBy('user_id')->get();
+		$params['article'] = $article;
+		$params['infos'] = $infos;
+		return View::make('pages.article.edit', $params);
 	}
 
 
@@ -126,7 +130,22 @@ class articlesController extends \BaseController {
 	 */
 	public function update($id)
 	{
+		$target_id = Input::all()["target_id"];
+		$article1 = Article::find($id);
+		$article2 = Article::find($target_id);
+		$temp = clone $article1;
 
+		$article1->title = $article2->title;
+		$article1->text = $article2->text;
+		$article1->text_autocomplete = $article2->text_autocomplete;
+		$article1->save();
+
+		$article2->title = $temp->title;
+		$article2->text = $temp->text;
+		$article2->text_autocomplete = $temp->text_autocomplete;
+		$article2->save();
+
+		return Redirect::to('article/'.$id);
 	}
 
 
